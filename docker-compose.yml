@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "while !</dev/tcp/db/5432; do echo 'waiting' && sleep 1; done; rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle && bundle exec rails db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/brain
     ports:
