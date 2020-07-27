@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo docker-compose down
-sudo docker-compose run web bundle
-sudo docker-compose run web rails db:migrate
-sudo docker-compose up -d
+docker-compose down
+docker-compose run web bundle
+docker-compose run web rails db:migrate
+docker-compose up -d
