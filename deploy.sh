@@ -1,4 +1,6 @@
 #!/bin/bash
 
-docker-compose build web
-docker-compose up --no-deps -d web
+docker-compose down
+docker-compose run web bundle
+docker-compose run web rails db:migrate
+docker-compose up -d
